@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مشغل الفيديو</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(#0F0F0F, #0F0F0F, #151525);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+
+    .video-container {
+      width: 90%;
+      max-width: 900px;
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      background-color: rgba(30, 30, 50, 0.6);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      padding: 20px;
+    }
+
+    .plyr__video-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container">
+    <video id="player" playsinline controls data-poster="">
+      <source id="videoSource" src="" type="video/mp4" />
+    </video>
+  </div>
+
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script>
+    // قراءة رابط الفيديو من عنوان الصفحة
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoUrl = urlParams.get('video');
+
+    // تعيين رابط الفيديو داخل الوسم
+    if (videoUrl) {
+      document.getElementById('videoSource').src = videoUrl;
+      document.getElementById('player').load();
+    }
+
+    // تهيئة المشغل
+    const player = new Plyr('#player');
+  </script>
+</body>
+</html>
