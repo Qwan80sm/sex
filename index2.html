@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>فيديو ستايل</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      direction: rtl;
+    }
+
+    header {
+      background-color: #0F0F0F;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1001;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    header .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      position: relative;
+    }
+
+    header .search-bar input[type="text"] {
+      width: 100%;
+      padding: 8px 40px 8px 10px;
+      border: none;
+      border-radius: 20px;
+    }
+
+    header .search-bar button {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: transparent;
+      color: #333;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    header .menu-toggle {
+      font-size: 22px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #fff;
+      height: 100vh;
+      box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+      padding-top: 20px;
+      position: fixed;
+      right: 0;
+      top: 60px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar.show {
+      transform: translateX(0);
+    }
+
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar ul li:hover {
+      background-color: #f1f1f1;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 100px 20px 20px;
+      width: 100%;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .video-card {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+      text-align: center;
+    }
+
+    .video-card:hover {
+      transform: translateY(-5px);
+    }
+
+.video-thumbnail {
+  width: 100%;
+  aspect-ratio: 13 / 8; /* تقريبًا 260×160 نسبة */
+  background-size: cover;
+  background-position: center;
+}
+
+    .video-details {
+      padding: 10px;
+    }
+
+    .video-details h3 {
+      margin: 0 0 5px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .video-details p {
+      margin: 0;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- باقي الكود كما هو بدون تغيير -->
+  <header>
+    <div class="logo">فيديو ستايل</div>
+    <div class="search-bar">
+      <input type="text" placeholder="ابحث...">
+      <button>🔍</button>
+    </div>
+    <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+  </header>
+
+  <div class="container">
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li>الرئيسية</li>
+        <li>الفيديوهات</li>
+        <li>القنوات</li>
+        <li>المفضلة</li>
+        <li>الإعدادات</li>
+        <a href="index.html">      رجوع الرئيسية</a>
+      </ul>
+    </div>
+
+    <div class="main-content" id="main">
+      <div class="videos-grid">
+        <a href="play.html?video=https://f.top4top.io/m_3387t1p981.mp4" class="video-card">
+          <div class="video-thumbnail" style="background-image: url('https://i.ibb.co/xKq0FKKp/1000067098.jpg');"></div>
+          <div class="video-details">
+            <h3>رزان بنت المدينة</h3>
+            <p>قناة الطبيعة • 100K مشاهدة</p>
+          </div>
+        </a>
+
+        <a href="play.html?video=https://d.top4top.io/m_3388pk85j0.mp4" class="video-card">
+          <div class="video-thumbnail" style="background-image: url('https://i.ibb.co/Z6K0QskR/1000067102.jpg');"></div>
+          <div class="video-details">
+            <h3>رزان المفشوخه</h3>
+            <p>قناة المعرفة • 250K مشاهدة</p>
+          </div>
+        </a>
+
+        <a href="play.html?video=https://j.top4top.io/m_33883xj8x1.mp4" class="video-card">
+          <div class="video-thumbnail" style="background-image: url('https://i.ibb.co/d0BYS6hS/1000067143.jpg');"></div>
+          <div class="video-details">
+            <h3>رزان تمص لواحد</h3>
+            <p>قناة العلوم • 500K مشاهدة</p>
+          </div>
+        </a>
+        
+        <a href="play.html?video=https://d.top4top.io/m_3388437hb0.mp4" class="video-card">
+          <div class="video-thumbnail" style="background-image: url('https://i.ibb.co/XxgkktvP/1000067146.jpg');"></div>
+          <div class="video-details">
+            <h3>الجداويه</h3>
+            <p>سراتيه •1الف مشاهدة</p>
+          </div>
+        </a>
+        
+         <a href="play.html?video=https://l.top4top.io/m_3388zasp30.mp4" class="video-card">
+          <div class="video-thumbnail" style="background-image: url('https://i.ibb.co/35Lsz56J/1000067150.jpg');"></div>
+          <div class="video-details">
+            <h3> قحبه جديده في الساحه في صوت ضراط</h3>
+            <p>سراتيه •1الف مشاهدة</p>
+          </div>
+        </a>
+        
+            <a href="play.html?video=https://k.top4top.io/m_3388ukerx0.mp4" class="video-card">
+          <div class="video-thumbnail" style="background-image: url('https://i.ibb.co/rfvhzcj5/1000067153.jpg');"></div>
+          <div class="video-details">
+            <h3> قحبه جديده في الساحه مزه</h3>
+            <p>سراتيه •1الف مشاهدة</p>
+          </div>
+        </a>
+        
+                <a href="play.html?video=https://h.top4top.io/m_3388evnru0.mp4" class="video-card">
+          <div class="video-thumbnail" style="background-image: url('https://i.ibb.co/kgsdYHgL/1000067159.jpg');"></div>
+          <div class="video-details">
+            <h3>تجميع التويتر</h3>
+            <p>تويتر  •1الف مشاهدة</p>
+          </div>
+        </a>
+        
+                       <a href="play.html?video=https://f.top4top.io/m_3388itge60.mp4" class="video-card">
+          <div class="video-thumbnail" style="background-image: url('https://i.ibb.co/XfDFW4Vs/1000067184.jpg');"></div>
+          <div class="video-details">
+            <h3>شق طيزها شق</h3>
+            <p>تويتر  •1الف مشاهدة</p>
+          </div>
+        </a>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+
+    function toggleSidebar() {
+      sidebar.classList.toggle('show');
+    }
+
+    document.addEventListener('click', function (e) {
+      const isClickInside = sidebar.contains(e.target) || e.target.classList.contains('menu-toggle');
+      if (!isClickInside) {
+        sidebar.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>
